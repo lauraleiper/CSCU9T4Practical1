@@ -56,6 +56,24 @@ public class TrainingRecord {
         }
         return result;
     } // lookUpAllEntries
+    public String RemoveEntry(String n, int d, int m, int y){
+        ListIterator<Entry> iter = tr.listIterator();
+        boolean alreadyPresent = false;
+        while (iter.hasNext()) {
+            Entry current = iter.next();
+            if (current.getDay() == d && current.getMonth() == m
+                    && current.getYear() == y && current.getName().equals(n)) {
+                alreadyPresent = true;
+
+                iter.remove();
+            }
+        }
+        if (!alreadyPresent) {
+            return "No entry found\n";
+        }
+        return "Record removed\n";
+    } // RemoveClass
+
 
    // Count the number of entries
    public int getNumberOfEntries(){

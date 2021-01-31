@@ -94,6 +94,24 @@ public class TrainingRecordGUITest {
         System.out.println(message);
         assertEquals(message,"Record added\n");
     }
+    /**
+     * Test of RemoveEntry method, of class TrainingRecordGUI
+     *
+     */
+    @Test
+    public void testRemoveEntry(){
+        System.out.println("RemoveEntry");
+        TrainingRecordGUI instance = new TrainingRecordGUI();
+        Entry entry = new Entry("Alice", 1, 2, 2003, 0, 16, 7, 3);
+        instance.fillDisplay(entry);
+        String message = instance.addEntry("generic");
+        message = instance.RemoveEntry();
+        System.out.println(message);
+        assertEquals(message,"Record removed\n");
+        message = instance.RemoveEntry();
+        System.out.println(message);
+        assertEquals(message,"No entry found\n");
+    }
     
     /**
      * Test to see if all display requirements have been met
