@@ -27,7 +27,11 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     private JLabel labdist = new JLabel(" Distance (km):");
     private JButton addR = new JButton("Add");
     private JButton lookUpByDate = new JButton("Look Up");
-    private JButton FindAllByDate = new JButton("Find all by date");// New button FindAllByDate added
+    private JButton findAllByDate = new JButton("Find all by date");// New button FindAllByDate added
+    private JButton addSwim = new JButton("Add swimming session");//button for add swim
+    private JButton addCycle = new JButton("Add cycling session");//button for add cycle
+    private JButton addSprint = new JButton("Add sprint session");//button for add sprint
+
 
     private TrainingRecord myAthletes = new TrainingRecord();
 
@@ -67,10 +71,16 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         dist.setEditable(true);
         add(addR);
         addR.addActionListener(this);
+        add(addSwim);
+        addSwim.addActionListener(this);// adding button swim
+        add(addCycle);
+        addCycle.addActionListener(this);// adding button cycle
+        add(addSprint);
+        addSprint.addActionListener(this);// adding button sprint
         add(lookUpByDate);
         lookUpByDate.addActionListener(this);
-        add(FindAllByDate);// adding button for FindAllByDate
-        FindAllByDate.addActionListener(this);// make button use this class
+        add(findAllByDate);// adding button for FindAllByDate
+        findAllByDate.addActionListener(this);// make button use this class
         add(outputArea);
         outputArea.setEditable(false);
         setSize(720, 200);
@@ -91,7 +101,7 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         if (event.getSource() == lookUpByDate) {
             message = lookupEntry();
         }
-        if (event.getSource() == FindAllByDate) {
+        if (event.getSource() == findAllByDate) {
             message = findAllDate(); //statement added to actionPerformed to handle FindAllByDate button
         }
         outputArea.setText(message);
@@ -129,7 +139,7 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         int d = Integer.parseInt(day.getText());// receiving day integer
         int y = Integer.parseInt(year.getText());// receiving year integer
         outputArea.setText("looking up all records ...");// output text
-        String message = myAthletes.lookupAllEntries(d, m, y);// get data
+        String message = myAthletes.lookupEntries(d, m, y);// get data
         return message;// return data
     }
 

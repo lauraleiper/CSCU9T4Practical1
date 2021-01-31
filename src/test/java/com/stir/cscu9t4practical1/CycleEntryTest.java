@@ -22,19 +22,19 @@ public class CycleEntryTest {
     }
     
     @BeforeAll
-    public static void setUpClass() {
+    public static void setUpClass() throws Exception {
     }
     
     @AfterAll
-    public static void tearDownClass() {
+    public static void tearDownClass() throws Exception {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception {
     }
     
     @AfterEach
-    public void tearDown() {
+    public void tearDown() throws Exception {
     }
 
     /**
@@ -137,9 +137,10 @@ public class CycleEntryTest {
      * Test of getTerrain method, of class CycleEntry.
      */
     @Test
-    public void testGetTerrain() {
+    public void testGetTerrain() { // added getTerrain method in CycleEntry subclass
         System.out.println("getTerrain");
-        Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
+        CycleEntry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
+        // Changed Entry to CycleEntry
         String expResult = "asphalt";
         String result = instance.getTerrain();
         assertEquals(expResult, result);
@@ -149,9 +150,9 @@ public class CycleEntryTest {
      * Test of getTempo method, of class CycleEntry.
      */
     @Test
-    public void testGetTempo() {
+    public void testGetTempo() {// added getTempo method to CycleEntry subclass
         System.out.println("getTempo");
-        Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
+        CycleEntry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
         String expResult = "moderate";
         String result = instance.getTempo();
         assertEquals(expResult, result);
