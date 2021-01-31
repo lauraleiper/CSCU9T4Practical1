@@ -12,7 +12,7 @@ public class TrainingRecord {
     
     public TrainingRecord() {
         tr = new ArrayList<Entry>();
-    } //constructor
+    } // constructor
     
     // add a record to the list
    public void addEntry(Entry e){
