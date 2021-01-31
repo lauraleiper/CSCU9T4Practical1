@@ -27,6 +27,7 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     private JLabel labdist = new JLabel(" Distance (km):");
     private JButton addR = new JButton("Add");
     private JButton lookUpByDate = new JButton("Look Up");
+    private JButton FindAllByDate = new JButton("Find all by date");//New button FindAllByDate added
 
     private TrainingRecord myAthletes = new TrainingRecord();
 
@@ -68,6 +69,8 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         addR.addActionListener(this);
         add(lookUpByDate);
         lookUpByDate.addActionListener(this);
+        add(FindAllByDate);// adding button for FindAllByDate
+        FindAllByDate.addActionListener(this);// make button use this class
         add(outputArea);
         outputArea.setEditable(false);
         setSize(720, 200);
@@ -87,6 +90,9 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         }
         if (event.getSource() == lookUpByDate) {
             message = lookupEntry();
+        }
+        if (event.getSource() == FindAllByDate) {
+            message = findAllDate(); //statement added to actionPerformed to handle FindAllByDate button
         }
         outputArea.setText(message);
         blankDisplay();
@@ -116,6 +122,17 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         String message = myAthletes.lookupEntry(d, m, y);
         return message;
     }
+
+    public String findAllDate() { //reading strings from all records from Training Record for a day
+        //outputArea.setText("Not implemented yet");//place holder for FindAllByDate button
+        int m = Integer.parseInt(month.getText());// receiving month integer
+        int d = Integer.parseInt(day.getText());// receiving day integer
+        int y = Integer.parseInt(year.getText());// receiving year integer
+        outputArea.setText("looking up all records ...");// output text
+        String message = myAthletes.lookupAllEntries(d, m, y);// get data
+        return message;// return data
+    }
+
 
     public void blankDisplay() {
         name.setText("");
