@@ -17,23 +17,23 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class SwimEntryTest {
     
-    public SwimEntryTest() {
+    public SwimEntryTest() throws Exception {
     }
     
     @BeforeAll
-    public static void setUpClass() {
+    public static void setUpClass() throws Exception {
     }
     
     @AfterAll
-    public static void tearDownClass() {
+    public static void tearDownClass() throws Exception {
     }
     
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws Exception {
     }
     
     @AfterEach
-    public void tearDown() {
+    public void tearDown() throws Exception {
     }
 
     /**
@@ -136,17 +136,18 @@ public class SwimEntryTest {
      * Test of getWhere method, of class SwimEntry
      */
     @Test
-    public void testGetWhere() {
+    public void testGetWhere() { // added getWhere method to SwimEntry subclass
         System.out.println("getWhere");
-        Entry instanceA = new SwimEntry("Alice", 1, 2, 2003, 0, 16, 7, 3,"outdoors");
+        SwimEntry instanceA = new SwimEntry("Alice", 1, 2, 2003, 0, 16, 7, 3,"outdoors");
+        //Changed Entry to SwimEntry
         String expResultA = "outdoors";
         String result = instanceA.getWhere();
         assertEquals(expResultA, result);
         
-        Entry instanceB = new SwimEntry("Alice", 1, 2, 2003, 0, 16, 7, 3,"pool");
+        SwimEntry instanceB = new SwimEntry("Alice", 1, 2, 2003, 0, 16, 7, 3,"pool");
         String expResultB = "in a pool";
-        String result = instanceB.getWhere();
-        assertEquals(expResultB, result);
+        String result2 = instanceB.getWhere();
+        assertEquals(expResultB, result2);
     }
     /**
      * Test of getEntry method, of class SwimEntry.

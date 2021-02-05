@@ -6,6 +6,10 @@ public class Entry {
   private String name;
   private Calendar dateAndTime;
   private float distance;
+
+  public Entry() {
+    //dummy constructor...no parameters...so compiler runs
+  }
   
   public Entry (String n, int d, int m, int y, int h, int min, int s, float dist) {
     name = n;
